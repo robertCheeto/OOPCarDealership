@@ -51,6 +51,11 @@ public class UserInterface {
         }
     }
 
+    // i'm stumped on this one tbh
+    public static void processAllVehicleRequest(Dealership dealership) {
+        displayVehicles();
+    }
+
 
     public static void processGetByPriceRequest() {
 

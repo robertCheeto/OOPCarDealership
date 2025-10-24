@@ -64,9 +64,9 @@ public class Dealership {
             throw new RuntimeException(e);
         }
 
-        for (int i = 0; i < inventory.size(); i++) {
-            System.out.println(inventory.get(i) + " ");
-        }
+//        for (int i = 0; i < inventory.size(); i++) {
+//            System.out.println(inventory.get(i) + " ");
+//        }
         
     }
 

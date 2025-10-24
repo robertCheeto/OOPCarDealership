@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
+
 public class UserInterface {
 
     // need to somehow return the dealership data in init() to the dealership object
@@ -12,6 +14,8 @@ public class UserInterface {
         return dealership;
     }
 
+    // for all the switch case instances, that is where the process()s go
+    // need to load those into the switch case
     public void display() {
         init();
 
@@ -36,6 +40,17 @@ public class UserInterface {
         }
 
     }
+
+    private void displayVehicles(Dealership dealership) {
+        ArrayList<Vehicle> inventory = new ArrayList<>();
+
+        dealership.getAllVehicles(inventory);
+
+        for (int i = 0; i < inventory.size(); i++) {
+            System.out.println(inventory.get(i) + " ");
+        }
+    }
+
 
     public static void processGetByPriceRequest() {
 

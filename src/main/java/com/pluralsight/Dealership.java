@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Dealership {
     private String name, address, phone;
-    private ArrayList<Vehicle> inventory = new ArrayList<>();
+    ArrayList<Vehicle> inventory = new ArrayList<>();
 
     public Dealership(String name, String address, String phone) {
         this.name = name;
@@ -13,32 +13,32 @@ public class Dealership {
         this.phone = phone;
     }
 
-    public ArrayList<Vehicle> getVehiclesByPrice(min, max) {
+    public ArrayList<Vehicle> getVehiclesByPrice(int min, int max) {
         return null;
     }
 
-    public ArrayList<Vehicle> getVehiclesByMakeModel(make, model) {
+    public ArrayList<Vehicle> getVehiclesByMakeModel(String make, String model) {
         return null;
     }
 
-    public ArrayList<Vehicle> getVehiclesByYear(min, max) {
+    public ArrayList<Vehicle> getVehiclesByYear(int min, int max) {
         return null;
     }
 
-    public ArrayList<Vehicle> getVehiclesByColor(color) {
+    public ArrayList<Vehicle> getVehiclesByColor(String color) {
         return null;
     }
 
-    public ArrayList<Vehicle> getVehiclesByMileage(min, max) {
+    public ArrayList<Vehicle> getVehiclesByMileage(int min, int max) {
         return null;
     }
 
-    public ArrayList<Vehicle> getVehiclesByType(vehicleType) {
+    public ArrayList<Vehicle> getVehiclesByType(String vehicleType) {
         return null;
     }
 
     // not sure if this code will work. need to build more of the program to be able to test it
-    public void getAllVehicles(ArrayList<Vehicle>) {
+    public void getAllVehicles(ArrayList<Vehicle> inventory) {
 
         try {
             BufferedReader bufReader = new BufferedReader(new FileReader("src/main/resources/inventory.csv"));
@@ -70,7 +70,7 @@ public class Dealership {
         
     }
 
-    public void addVehicle(Vehicle) {
+    public void addVehicle(Vehicle vehicle) {
         // need code that gets the Vehicle information before it can be added to the inventory.csv
             try {
                 BufferedWriter bufWriter = new BufferedWriter(new FileWriter("src/main/resources/inventory.csv",true));
@@ -83,7 +83,7 @@ public class Dealership {
 
         }
 
-    public void removeVehicle(Vehicle) {
+    public void removeVehicle(Vehicle vehicle) {
 
     }
 

@@ -2,10 +2,10 @@ package com.pluralsight;
 
 public class UserInterface {
 
+    public static void main(String[] args) {
+        Dealership dealership = new Dealership("Tony's Car Park", "1600 Pennsylavnia Avenue", "412-577-8014");
 
-//    public static void main(String[] args) {
-//
-//    }
+    }
 
     private void init() {
         DealershipFileManager dealership = new DealershipFileManager();
@@ -14,6 +14,7 @@ public class UserInterface {
     }
 
     public static void display() {
+        init();
 
         while (isRunning) {
             boolean isRunning;

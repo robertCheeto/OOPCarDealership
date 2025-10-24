@@ -7,7 +7,8 @@ import java.util.ArrayList;
 public class DealershipFileManager {
     ArrayList<Vehicle> inventory = new ArrayList<>();
 
-    public void getDealership(Dealership dealership) {
+    public static Dealership getDealership() {
+
         try {
             BufferedReader bufReader = new BufferedReader(new FileReader("src/main/resources/inventory.csv"));
             String input = "";
@@ -34,6 +35,7 @@ public class DealershipFileManager {
         for (int i = 0; i < inventory.size(); i++) {
             System.out.println(inventory.get(i) + " ");
         }
+        return null;
     }
 
     public void saveDealership(Dealership dealership) {

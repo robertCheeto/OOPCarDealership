@@ -7,23 +7,34 @@ import java.util.ArrayList;
 public class DealershipFileManager {
     ArrayList<Vehicle> inventory = new ArrayList<>();
 
-    public static Dealership getDealership() {
+    public Dealership getDealership() {
+
+        Dealership dealership;
 
         try {
             BufferedReader bufReader = new BufferedReader(new FileReader("src/main/resources/inventory.csv"));
             String input = "";
 
-            while ((input = bufReader.readLine()) != null) {
-                String[] parsedList = input.split("\\|");
+            bufReader.readLine();
+            String[] parsedList1 = input.split("\\|");
 
-                int vin = Integer.parseInt(parsedList[0]);
-                int year = Integer.parseInt(parsedList[1]);
-                String make = parsedList[2];
-                String model = parsedList[3];
-                String vehicleType = parsedList[4];
-                String color = parsedList[5];
-                int odometer = Integer.parseInt(parsedList[6]);
-                double price = Double.parseDouble(parsedList[7]);
+            String name = parsedList1[0];
+            String address = parsedList1[1];
+            String phoneNum = parsedList1[2];
+
+            dealership = new Dealership(name, address, phoneNum);
+
+            while ((input = bufReader.readLine()) != null) {
+                String[] parsedList2 = input.split("\\|");
+
+                int vin = Integer.parseInt(parsedList2[0]);
+                int year = Integer.parseInt(parsedList2[1]);
+                String make = parsedList2[2];
+                String model = parsedList2[3];
+                String vehicleType = parsedList2[4];
+                String color = parsedList2[5];
+                int odometer = Integer.parseInt(parsedList2[6]);
+                double price = Double.parseDouble(parsedList2[7]);
 
                 inventory.add(new Vehicle(vin, year, make, model, vehicleType, color, odometer, price));
             }
@@ -32,10 +43,7 @@ public class DealershipFileManager {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        for (int i = 0; i < inventory.size(); i++) {
-            System.out.println(inventory.get(i) + " ");
-        }
-        return null;
+        return dealership;
     }
 
     public void saveDealership(Dealership dealership) {

@@ -2,18 +2,17 @@ package com.pluralsight;
 
 public class UserInterface {
 
-    public static void main(String[] args) {
-        Dealership dealership = new Dealership("Tony's Car Park", "1600 Pennsylavnia Avenue", "412-577-8014");
+    // need to somehow return the dealership data in init() to the dealership object
+    Dealership dealership = new Dealership("", "", "");
 
+    private Dealership init() {
+        DealershipFileManager dealershipManager = new DealershipFileManager();
+        dealershipManager.getDealership();
+
+        return dealership;
     }
 
-    private void init() {
-        DealershipFileManager dealership = new DealershipFileManager();
-        dealership.getDealership();
-
-    }
-
-    public static void display() {
+    public void display() {
         init();
 
         while (isRunning) {

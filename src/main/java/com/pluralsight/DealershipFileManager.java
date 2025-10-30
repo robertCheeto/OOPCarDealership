@@ -15,10 +15,10 @@ public class DealershipFileManager {
         try {
             BufferedReader bufReader = new BufferedReader(new FileReader("src/main/resources/inventory.csv"));
 
-            String input = "";
-            String[] parsedList = input.split("\\|");
+            String input;
 
             while ((input = bufReader.readLine()) != null) {
+                String[] parsedList = input.split("\\|");
 
                 if (parsedList.length > 3) {
                     int vin = Integer.parseInt(parsedList[0]);

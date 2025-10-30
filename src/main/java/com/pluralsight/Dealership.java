@@ -14,6 +14,18 @@ public class Dealership {
         inventory = new ArrayList<>();
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
     public List<Vehicle> getVehiclesByPrice(int min, int max) {
         return new ArrayList<>();
     }
@@ -38,8 +50,8 @@ public class Dealership {
         return new ArrayList<>();
     }
 
-    public static List<Vehicle> getAllVehicles(List<Vehicle> inventory) {
-        return inventory;
+    public List<Vehicle> getAllVehicles() {
+        return this.inventory;
     }
 
     public void addVehicle(Vehicle vehicle) {

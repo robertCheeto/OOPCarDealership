@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class DealershipFileManager {
     ArrayList<Vehicle> inventory = new ArrayList<>();
 
-    public static Dealership getDealership() {
+    public Dealership getDealership() {
         Dealership dealership = null;
 
         try {
@@ -50,9 +50,6 @@ public class DealershipFileManager {
     public static void saveDealership(Dealership dealership) {
         // need to write to inventory file
         // get dealership name, get the inventory and overwrite file
-
-
-
     }
 
 

@@ -53,10 +53,8 @@ public class UserInterface {
     }
 
     private void displayVehicles(List<Vehicle> vehicles) {
-        Dealership.getAllVehicles(vehicles);
-
         for (Vehicle vehicle : vehicles) {
-            System.out.println(vehicle + " ");
+            System.out.println(vehicle);
         }
     }
 

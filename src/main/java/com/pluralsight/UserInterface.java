@@ -6,14 +6,11 @@ import java.util.Scanner;
 public class UserInterface {
     private Dealership dealership;
     private Scanner keyboard = new Scanner(System.in);
-    // need to somehow return the dealership data in init() to the dealership object;
 
     private void init() {
         dealership = DealershipFileManager.getDealership();
     }
 
-    // for all the switch case instances, that is where the process()s go
-    // need to load those into the switch case
     public void display() {
         init();
         menuDisplay();
@@ -30,7 +27,7 @@ public class UserInterface {
                 case 4 -> processGetByColorRequest();
                 case 5 -> processGetByMileageRequest();
                 case 6 -> processGetByVehicleTypeRequest();
-                case 7 -> processAllVehicleRequest();
+                case 7 -> processGetAllVehiclesRequest();
                 case 8 -> processAddVehicleRequest();
                 case 9 -> processRemoveVehicleRequest();
                 case 99 -> System.exit(0);
@@ -54,18 +51,16 @@ public class UserInterface {
         System.out.print("Enter user choice here: ");
     }
 
-    private void displayVehicles(Dealership dealership) {
-        ArrayList<Vehicle> inventory = new ArrayList<>();
+    private void displayVehicles(ArrayList<Vehicle> vehicles) {
+        dealership.getAllVehicles(vehicles);
 
-        dealership.getAllVehicles(inventory);
-
-        for (int i = 0; i < inventory.size(); i++) {
-            System.out.println(inventory.get(i) + " ");
+        for (Vehicle vehicle : vehicles) {
+            System.out.println(vehicle + " ");
         }
     }
 
-    public static void processAllVehicleRequest(Dealership dealership) {
-        dealership.displayVehicles();
+    public void processAllVehicleRequest(ArrayList<Vehicle> vehicles) {
+        displayVehicles(vehicles);
     }
 
 
@@ -93,7 +88,7 @@ public class UserInterface {
 
     }
 
-    public static void processGetByAllVehiclesRequest() {
+    public static void processGetAllVehiclesRequest() {
 
     }
 

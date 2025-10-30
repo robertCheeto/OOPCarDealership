@@ -38,7 +38,7 @@ public class Dealership {
         return new ArrayList<>();
     }
 
-    public static List<Vehicle> getAllVehicles(ArrayList<Vehicle> inventory) {
+    public static List<Vehicle> getAllVehicles(List<Vehicle> inventory) {
         return inventory;
     }
 

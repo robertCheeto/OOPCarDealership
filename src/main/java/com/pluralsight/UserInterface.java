@@ -1,26 +1,26 @@
 package com.pluralsight;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class UserInterface {
+    private Dealership dealership;
+    private Scanner keyboard = new Scanner(System.in);
+    // need to somehow return the dealership data in init() to the dealership object;
 
-    // need to somehow return the dealership data in init() to the dealership object
-    Dealership dealership = new Dealership("", "", "");
-
-    private Dealership init() {
-        DealershipFileManager dealershipManager = new DealershipFileManager();
-        dealershipManager.getDealership();
-
-        return dealership;
+    private void init() {
+        dealership = DealershipFileManager.getDealership();
     }
 
     // for all the switch case instances, that is where the process()s go
     // need to load those into the switch case
     public void display() {
         init();
+        boolean isRunning = true;
 
         while (isRunning) {
-            boolean isRunning;
+            int userInput = keyboard.nextInt();
+            keyboard.nextLine();
 
             switch (userInput) {
                 case 1:
@@ -53,7 +53,7 @@ public class UserInterface {
 
     // i'm stumped on this one tbh
     public static void processAllVehicleRequest(Dealership dealership) {
-        displayVehicles();
+        dealership.displayVehicles();
     }
 
 

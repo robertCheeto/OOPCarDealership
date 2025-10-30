@@ -7,36 +7,37 @@ import java.util.ArrayList;
 public class DealershipFileManager {
     ArrayList<Vehicle> inventory = new ArrayList<>();
 
-    public Dealership getDealership() {
-
-        Dealership dealership;
+    public static Dealership getDealership() {
+        Dealership dealership = null;
 
         try {
             BufferedReader bufReader = new BufferedReader(new FileReader("src/main/resources/inventory.csv"));
+
             String input = "";
-
-            bufReader.readLine();
-            String[] parsedList1 = input.split("\\|");
-
-            String name = parsedList1[0];
-            String address = parsedList1[1];
-            String phoneNum = parsedList1[2];
-
-            dealership = new Dealership(name, address, phoneNum);
+            String[] parsedList = input.split("\\|");
 
             while ((input = bufReader.readLine()) != null) {
-                String[] parsedList2 = input.split("\\|");
 
-                int vin = Integer.parseInt(parsedList2[0]);
-                int year = Integer.parseInt(parsedList2[1]);
-                String make = parsedList2[2];
-                String model = parsedList2[3];
-                String vehicleType = parsedList2[4];
-                String color = parsedList2[5];
-                int odometer = Integer.parseInt(parsedList2[6]);
-                double price = Double.parseDouble(parsedList2[7]);
+                if (parsedList.length > 3) {
+                    int vin = Integer.parseInt(parsedList[0]);
+                    int year = Integer.parseInt(parsedList[1]);
+                    String make = parsedList[2];
+                    String model = parsedList[3];
+                    String vehicleType = parsedList[4];
+                    String color = parsedList[5];
+                    int odometer = Integer.parseInt(parsedList[6]);
+                    double price = Double.parseDouble(parsedList[7]);
 
-                inventory.add(new Vehicle(vin, year, make, model, vehicleType, color, odometer, price));
+                    inventory.add(new Vehicle(vin, year, make, model, vehicleType, color, odometer, price));
+                }
+                else {
+                    String name = parsedList[0];
+                    String address = parsedList[1];
+                    String phoneNum = parsedList[2];
+
+                    dealership = new Dealership(name, address, phoneNum);
+                }
+
             }
             bufReader.close();
 
@@ -46,7 +47,11 @@ public class DealershipFileManager {
         return dealership;
     }
 
-    public void saveDealership(Dealership dealership) {
+    public static void saveDealership(Dealership dealership) {
+        // need to write to inventory file
+        // get dealership name, get the inventory and overwrite file
+
+
 
     }
 

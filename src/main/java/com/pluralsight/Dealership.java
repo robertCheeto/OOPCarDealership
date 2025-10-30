@@ -2,6 +2,7 @@ package com.pluralsight;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Dealership {
     private String name, address, phone;
@@ -11,80 +12,44 @@ public class Dealership {
         this.name = name;
         this.address = address;
         this.phone = phone;
+        inventory = new ArrayList<>();
     }
 
-    public ArrayList<Vehicle> getVehiclesByPrice(int min, int max) {
-        return null;
+    public List<Vehicle> getVehiclesByPrice(int min, int max) {
+        return new ArrayList<Vehicle>();
     }
 
-    public ArrayList<Vehicle> getVehiclesByMakeModel(String make, String model) {
-        return null;
+    public List<Vehicle> getVehiclesByMakeModel(String make, String model) {
+        return new ArrayList<Vehicle>();
     }
 
-    public ArrayList<Vehicle> getVehiclesByYear(int min, int max) {
-        return null;
+    public List<Vehicle> getVehiclesByYear(int min, int max) {
+        return new ArrayList<Vehicle>();
     }
 
-    public ArrayList<Vehicle> getVehiclesByColor(String color) {
-        return null;
+    public List<Vehicle> getVehiclesByColor(String color) {
+        return new ArrayList<Vehicle>();
     }
 
-    public ArrayList<Vehicle> getVehiclesByMileage(int min, int max) {
-        return null;
+    public List<Vehicle> getVehiclesByMileage(int min, int max) {
+        return new ArrayList<Vehicle>();
     }
 
-    public ArrayList<Vehicle> getVehiclesByType(String vehicleType) {
-        return null;
+    public List<Vehicle> getVehiclesByType(String vehicleType) {
+        return new ArrayList<Vehicle>();
     }
 
     // not sure if this code will work. need to build more of the program to be able to test it
-    public void getAllVehicles(ArrayList<Vehicle> inventory) {
-
-        try {
-            BufferedReader bufReader = new BufferedReader(new FileReader("src/main/resources/inventory.csv"));
-            String input = "";
-
-            while ((input = bufReader.readLine()) != null) {
-                String[] parsedList = input.split("\\|");
-
-                int vin = Integer.parseInt(parsedList[0]);
-                int year = Integer.parseInt(parsedList[1]);
-                String make = parsedList[2];
-                String model = parsedList[3];
-                String vehicleType = parsedList[4];
-                String color = parsedList[5];
-                int odometer = Integer.parseInt(parsedList[6]);
-                double price = Double.parseDouble(parsedList[7]);
-
-                inventory.add(new Vehicle(vin, year, make, model, vehicleType, color, odometer, price));
-            }
-            bufReader.close();
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
-//        for (int i = 0; i < inventory.size(); i++) {
-//            System.out.println(inventory.get(i) + " ");
-//        }
-        
+    public static void getAllVehicles(ArrayList<Vehicle> inventory) {
+        return inventory;
     }
 
     public void addVehicle(Vehicle vehicle) {
-        // need code that gets the Vehicle information before it can be added to the inventory.csv
-            try {
-                BufferedWriter bufWriter = new BufferedWriter(new FileWriter("src/main/resources/inventory.csv",true));
-                String input = "";
-                inventory.add(new Vehicle(vin, year, make, model, vehicleType, color, odometer, price));
-
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-        }
+        return this.inventory.add(vehicle);
+    }
 
     public void removeVehicle(Vehicle vehicle) {
-
+        return this.inventory.remove(vehicle);
     }
 
 

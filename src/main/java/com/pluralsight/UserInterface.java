@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -51,8 +52,8 @@ public class UserInterface {
         System.out.print("Enter user choice here: ");
     }
 
-    private void displayVehicles(ArrayList<Vehicle> vehicles) {
-        dealership.getAllVehicles(vehicles);
+    private void displayVehicles(List<Vehicle> vehicles) {
+        Dealership.getAllVehicles(vehicles);
 
         for (Vehicle vehicle : vehicles) {
             System.out.println(vehicle + " ");

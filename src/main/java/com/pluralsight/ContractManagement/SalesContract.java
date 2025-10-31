@@ -86,7 +86,6 @@ public class SalesContract extends Contract {
             }
         }
         else {
-
             return salesTax + recordingFee + processingFee;
         }
     }

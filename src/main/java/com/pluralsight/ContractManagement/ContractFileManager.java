@@ -122,13 +122,13 @@ public class ContractFileManager {
 
     }
 
-    public static void saveLeaseContract(LeaseContract leaseContract) {
+    public static void saveLeaseContract(LeaseContract leaseContract, Vehicle vehicle) {
         try {
             BufferedWriter bufWriter = new BufferedWriter(new FileWriter("src/main/resources/contracts.csv", true));
-            bufWriter.write(String.format("%s|%s|%s|%s|%d|%d|%s|%s|%s|%s|%d|%.2f|%.2f|%d|%.2f|%.2f",
+            bufWriter.write(String.format("%s|%s|%s|%s|%d|%d|%s|%s|%s|%s|%d|%.2f|%.2f|%.2f|%.2f|%.2f",
                     "LEASE", leaseContract.getContractDate(), leaseContract.getCustomerName(), leaseContract.getCustomerEmail(),
-                    leaseContract.getVin(), leaseContract.getYear(), leaseContract.getMake(), leaseContract.getModel(),
-                    leaseContract.getVehicleType(), leaseContract.getColor(), leaseContract.getOdometer(), leaseContract.getPrice(),
+                    vehicle.getVin(), vehicle.getYear(), vehicle.getMake(), vehicle.getModel(),
+                    vehicle.getVehicleType(), vehicle.getColor(), vehicle.getOdometer(), vehicle.getPrice(),
                     leaseContract.getEndingValue(), leaseContract.getLeaseFee(), leaseContract.getTotalPrice(), leaseContract.getMonthlyPayment()));
 
             bufWriter.newLine();

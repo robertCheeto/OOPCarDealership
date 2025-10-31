@@ -118,20 +118,59 @@ public class UserInterface {
         displayVehicles(dealership.getVehiclesByMileage(min, max));
     }
 
-    public static void processGetByVehicleTypeRequest() {
+    public void processGetByVehicleTypeRequest() {
+        System.out.print("Enter the vehicle type you want to search for: ");
+        String vehicleType = keyboard.nextLine();
 
+        displayVehicles(dealership.getVehiclesByType(vehicleType));
     }
 
     public void processGetAllVehiclesRequest() {
         displayVehicles(dealership.getAllVehicles());
     }
 
-    public static void processAddVehicleRequest() {
+    public void processAddVehicleRequest() {
+        //int vin, int year, String make, String model, String vehicleType, String color, int odometer, double price
+        System.out.println("Enter in vehicle information below.");
+        System.out.print("Enter Vehicle VIN: ");
+        int vin = keyboard.nextInt();
+        keyboard.nextLine();
 
+        System.out.print("Enter Vehicle Year: ");
+        int year = keyboard.nextInt();
+        keyboard.nextLine();
+
+        System.out.print("Enter Vehicle Make: ");
+        String make = keyboard.nextLine();
+
+        System.out.print("Enter Vehicle Model: ");
+        String model = keyboard.nextLine();
+
+        System.out.print("Enter Vehicle Type: ");
+        String type = keyboard.nextLine();
+
+        System.out.print("Enter Vehicle Color: ");
+        String color = keyboard.nextLine();
+
+        System.out.print("Enter Mileage: ");
+        int odometer = keyboard.nextInt();
+        keyboard.nextLine();
+
+        System.out.print("Enter Listing Price: $");
+        double price = keyboard.nextDouble();
+        keyboard.nextLine();
+
+        dealership.addVehicle(new Vehicle(vin, year, make, model, type, color, odometer, price));
+        DealershipFileManager.saveDealership(dealership);
     }
 
-    public static void processRemoveVehicleRequest() {
+    public void processRemoveVehicleRequest() {
+        System.out.print("Enter the VIN of a Vehicle To Remove: ");
+        int vin = keyboard.nextInt();
+        keyboard.nextLine();
 
+        dealership.removeVehicle(dealership.getVehiclesByVin(vin));
+        DealershipFileManager.saveDealership(dealership);
     }
 
 }

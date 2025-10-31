@@ -26,6 +26,16 @@ public class Dealership {
         return phone;
     }
 
+    public Vehicle getVehiclesByVin(int vin) {
+        Vehicle removedVehicle = null;
+        for (Vehicle vehicle : inventory) {
+            if ((vehicle.getVin() == vin)) {
+                removedVehicle = vehicle;
+            }
+        }
+        return removedVehicle;
+    }
+
     public List<Vehicle> getVehiclesByPrice(int min, int max) {
         ArrayList<Vehicle> priceList = new ArrayList<>();
         for (Vehicle vehicle : inventory) {
@@ -77,7 +87,13 @@ public class Dealership {
     }
 
     public List<Vehicle> getVehiclesByType(String vehicleType) {
-        return new ArrayList<>();
+        ArrayList<Vehicle> typeList = new ArrayList<>();
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getVehicleType().equalsIgnoreCase(vehicleType)) {
+                typeList.add(vehicle);
+            }
+        }
+        return typeList;
     }
 
     public List<Vehicle> getAllVehicles() {

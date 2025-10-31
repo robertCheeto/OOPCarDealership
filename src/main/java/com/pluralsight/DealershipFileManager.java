@@ -7,7 +7,6 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class DealershipFileManager {
-    static ArrayList<Vehicle> inventory = new ArrayList<>();
 
     public static Dealership getDealership() {
         Dealership dealership = null;
@@ -30,7 +29,7 @@ public class DealershipFileManager {
                     int odometer = Integer.parseInt(parsedList[6]);
                     double price = Double.parseDouble(parsedList[7]);
 
-                    inventory.add(new Vehicle(vin, year, make, model, vehicleType, color, odometer, price));
+                    dealership.addVehicle(new Vehicle(vin, year, make, model, vehicleType, color, odometer, price));
                 }
                 else {
                     String name = parsedList[0];
@@ -85,7 +84,5 @@ public class DealershipFileManager {
 //            throw new RuntimeException(e);
 //        }
     }
-
-
 
 }

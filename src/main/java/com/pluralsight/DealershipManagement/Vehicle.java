@@ -1,4 +1,4 @@
-package com.pluralsight;
+package com.pluralsight.DealershipManagement;
 
 public class Vehicle {
     private int vin, year, odometer;

@@ -1,4 +1,4 @@
-package com.pluralsight.Models;
+package com.pluralsight.ContractManagement;
 
 public abstract class Contract {
     private String contractDate, customerName, customerEmail, vehicleSold;

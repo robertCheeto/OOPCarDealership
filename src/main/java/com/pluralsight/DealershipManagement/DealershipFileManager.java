@@ -1,7 +1,6 @@
-package com.pluralsight;
+package com.pluralsight.DealershipManagement;
 
 import java.io.*;
-import java.util.ArrayList;
 
 public class DealershipFileManager {
 

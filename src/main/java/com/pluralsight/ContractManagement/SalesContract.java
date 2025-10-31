@@ -1,4 +1,4 @@
-package com.pluralsight.Models;
+package com.pluralsight.ContractManagement;
 
 public class SalesContract extends Contract {
     private int recordingFee, processingFee;

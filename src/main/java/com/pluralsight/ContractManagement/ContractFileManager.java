@@ -1,8 +1,8 @@
 package com.pluralsight.ContractManagement;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
+import com.pluralsight.DealershipManagement.Vehicle;
+
+import java.io.*;
 import java.rmi.dgc.Lease;
 
 public class ContractFileManager {
@@ -54,6 +54,25 @@ public class ContractFileManager {
         return salesContract;
     }
 
+    public static void saveSalesContract(SalesContract salesContract) {
+        try {
+            BufferedWriter bufWriter = new BufferedWriter(new FileWriter("src/main/resources/contracts.csv", true));
+            bufWriter.write(String.format("%s|%s|%s|%s|%d|%d|%s|%s|%s|%s|%d|%.2f|%.2f|%d|%d|%.2f|%s|%.2f",
+                    "SALE", salesContract.getContractDate(), salesContract.getCustomerName(), salesContract.getCustomerEmail(),
+                    salesContract.getVin(), salesContract.getYear(), salesContract.getMake(), salesContract.getModel(),
+                    salesContract.getVehicleType(), salesContract.getColor(), salesContract.getOdometer(), salesContract.getPrice(),
+                    salesContract.getSalesTax(), salesContract.getRecordingFee(), salesContract.getProcessingFee(), salesContract.getTotalPrice(),
+                    salesContract.isFinance(), salesContract.getMonthlyPayment());
+
+            bufWriter.newLine();
+
+            bufWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public static LeaseContract getLeaseContracts() {
         LeaseContract leaseContract = null;
 
@@ -100,11 +119,21 @@ public class ContractFileManager {
 
     }
 
-    public static void saveSalesContract(SalesContract salesContract) {
-
-    }
-
     public static void saveLeaseContract(LeaseContract leaseContract) {
+        try {
+            BufferedWriter bufWriter = new BufferedWriter(new FileWriter("src/main/resources/contracts.csv", true));
+            bufWriter.write(String.format("%s|%s|%s|%s|%d|%d|%s|%s|%s|%s|%d|%.2f|%.2f|%d|%.2f|%.2f",
+                    "LEASE", leaseContract.getContractDate(), leaseContract.getCustomerName(), leaseContract.getCustomerEmail(),
+                    leaseContract.getVin(), leaseContract.getYear(), leaseContract.getMake(), leaseContract.getModel(),
+                    leaseContract.getVehicleType(), leaseContract.getColor(), leaseContract.getOdometer(), leaseContract.getPrice(),
+                    leaseContract.getEndingValue(), leaseContract.getLeaseFee(), leaseContract.getTotalPrice(), leaseContract.getMonthlyPayment());
+
+            bufWriter.newLine();
+
+            bufWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 

@@ -29,7 +29,7 @@ public abstract class Contract {
         return vehicleSold;
     }
 
-    public abstract getTotalPrice();
+    public abstract double getTotalPrice();
 
-    public abstract getMonthlyPayment();
+    public abstract double getMonthlyPayment();
 }

@@ -75,20 +75,47 @@ public class UserInterface {
         displayVehicles(dealership.getVehiclesByPrice(min, max));
     }
 
-    public static void processGetByMakeModelRequest() {
+    public void processGetByMakeModelRequest() {
+        System.out.print("Enter the Vehicle Make: ");
+        String make = keyboard.nextLine();
 
+        System.out.println();
+
+        System.out.print("Enter the Vehicle Model: ");
+        String model = keyboard.nextLine();
+
+        displayVehicles(dealership.getVehiclesByMakeModel(make, model));
     }
 
-    public static void processGetByYearRequest() {
+    public void processGetByYearRequest() {
+        System.out.print("Enter the oldest year the vehicle came out: ");
+        int min = keyboard.nextInt();
+        keyboard.nextLine();
 
+        System.out.print("Enter the most recent year the vehicle came out: ");
+        int max = keyboard.nextInt();
+        keyboard.nextLine();
+
+        displayVehicles(dealership.getVehiclesByYear(min, max));
     }
 
-    public static void processGetByColorRequest() {
+    public void processGetByColorRequest() {
+        System.out.print("Enter the color for the vehicle you wanted to search for: ");
+        String color = keyboard.nextLine();
 
+        displayVehicles(dealership.getVehiclesByColor(color));
     }
 
-    public static void processGetByMileageRequest() {
+    public void processGetByMileageRequest() {
+        System.out.print("Enter the minimum amount of miles on the vehicle: ");
+        int min = keyboard.nextInt();
+        keyboard.nextLine();
 
+        System.out.print("Enter the maximum amount of miles on the vehicle: ");
+        int max = keyboard.nextInt();
+        keyboard.nextLine();
+
+        displayVehicles(dealership.getVehiclesByMileage(min, max));
     }
 
     public static void processGetByVehicleTypeRequest() {

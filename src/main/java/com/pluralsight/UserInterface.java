@@ -53,19 +53,26 @@ public class UserInterface {
     }
 
     private void displayVehicles(List<Vehicle> vehicles) {
-        System.out.println("Printing out vehicle inventory:");
+        System.out.println("Printing out vehicle inventory below...");
         for (Vehicle vehicle : vehicles) {
             System.out.println(vehicle);
         }
     }
 
-    public void processAllVehicleRequest(ArrayList<Vehicle> vehicles) {
-        displayVehicles(vehicles);
-    }
+    public void processGetByPriceRequest() {
+        System.out.println("Searching for Vehicle in Price Range...");
 
+        System.out.print("Enter a minimum price value: $");
+        int min = keyboard.nextInt();
+        keyboard.nextLine();
 
-    public static void processGetByPriceRequest() {
+        System.out.println();
 
+        System.out.print("Enter a maximum price value: $");
+        int max = keyboard.nextInt();
+        keyboard.nextLine();
+
+        displayVehicles(dealership.getVehiclesByPrice(min, max));
     }
 
     public static void processGetByMakeModelRequest() {

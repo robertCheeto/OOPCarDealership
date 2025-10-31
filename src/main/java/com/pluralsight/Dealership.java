@@ -27,7 +27,7 @@ public class Dealership {
     }
 
     public List<Vehicle> getVehiclesByPrice(int min, int max) {
-        return new ArrayList<>();
+        return this.inventory;
     }
 
     public List<Vehicle> getVehiclesByMakeModel(String make, String model) {

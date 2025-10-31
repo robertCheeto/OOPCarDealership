@@ -1,11 +1,14 @@
 package com.pluralsight.ContractManagement;
 
+import com.pluralsight.DealershipManagement.Dealership;
 import com.pluralsight.DealershipManagement.Vehicle;
 
 import java.io.*;
-import java.rmi.dgc.Lease;
 
 public class ContractFileManager {
+    Dealership dealership;
+    Vehicle vehicle;
+
     public static SalesContract getSalesContracts() {
         SalesContract salesContract = null;
 
@@ -54,15 +57,15 @@ public class ContractFileManager {
         return salesContract;
     }
 
-    public static void saveSalesContract(SalesContract salesContract) {
+    public static void saveSalesContract(SalesContract salesContract, Vehicle vehicle) {
         try {
             BufferedWriter bufWriter = new BufferedWriter(new FileWriter("src/main/resources/contracts.csv", true));
             bufWriter.write(String.format("%s|%s|%s|%s|%d|%d|%s|%s|%s|%s|%d|%.2f|%.2f|%d|%d|%.2f|%s|%.2f",
                     "SALE", salesContract.getContractDate(), salesContract.getCustomerName(), salesContract.getCustomerEmail(),
-                    salesContract.getVin(), salesContract.getYear(), salesContract.getMake(), salesContract.getModel(),
-                    salesContract.getVehicleType(), salesContract.getColor(), salesContract.getOdometer(), salesContract.getPrice(),
+                    vehicle.getVin(), vehicle.getYear(), vehicle.getMake(), vehicle.getModel(),
+                    vehicle.getVehicleType(), vehicle.getColor(), vehicle.getOdometer(), vehicle.getPrice(),
                     salesContract.getSalesTax(), salesContract.getRecordingFee(), salesContract.getProcessingFee(), salesContract.getTotalPrice(),
-                    salesContract.isFinance(), salesContract.getMonthlyPayment());
+                    salesContract.isFinanced(), salesContract.getMonthlyPayment()));
 
             bufWriter.newLine();
 
@@ -70,7 +73,6 @@ public class ContractFileManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public static LeaseContract getLeaseContracts() {

@@ -77,6 +77,7 @@ public class ContractFileManager {
 
     public static LeaseContract getLeaseContracts() {
         LeaseContract leaseContract = null;
+        Vehicle vehicle = null;
 
         try {
             BufferedReader bufReader = new BufferedReader(new FileReader("src/main/resources/contracts.csv"));
@@ -128,7 +129,7 @@ public class ContractFileManager {
                     "LEASE", leaseContract.getContractDate(), leaseContract.getCustomerName(), leaseContract.getCustomerEmail(),
                     leaseContract.getVin(), leaseContract.getYear(), leaseContract.getMake(), leaseContract.getModel(),
                     leaseContract.getVehicleType(), leaseContract.getColor(), leaseContract.getOdometer(), leaseContract.getPrice(),
-                    leaseContract.getEndingValue(), leaseContract.getLeaseFee(), leaseContract.getTotalPrice(), leaseContract.getMonthlyPayment());
+                    leaseContract.getEndingValue(), leaseContract.getLeaseFee(), leaseContract.getTotalPrice(), leaseContract.getMonthlyPayment()));
 
             bufWriter.newLine();
 

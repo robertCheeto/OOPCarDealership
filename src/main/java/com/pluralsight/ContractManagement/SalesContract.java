@@ -76,11 +76,13 @@ public class SalesContract extends Contract {
         if (financed) {
             if (vehicle.getPrice() > 10000) {
                 salesTax = getSalesTax();
-                return (salesTax * vehicle.getPrice() * 48);
+                double priceAfterTax = (vehicle.getPrice() - (vehicle.getPrice()) * salesTax)  + recordingFee + processingFee;
+                return (priceAfterTax / 48);
             }
             else {
                 salesTax = getSalesTax();
-                return (salesTax * vehicle.getPrice() * 0.05 * 24);
+                double priceAfterTax = (vehicle.getPrice() - (vehicle.getPrice()) * salesTax)  + recordingFee + processingFee;
+                return (priceAfterTax / 24);
             }
         }
         else {

@@ -53,6 +53,7 @@ public class UserInterface {
     }
 
     private void displayVehicles(List<Vehicle> vehicles) {
+        System.out.println("Printing out vehicle inventory:");
         for (Vehicle vehicle : vehicles) {
             System.out.println(vehicle);
         }
@@ -87,8 +88,8 @@ public class UserInterface {
 
     }
 
-    public static void processGetAllVehiclesRequest() {
-
+    public void processGetAllVehiclesRequest() {
+        displayVehicles(dealership.getAllVehicles());
     }
 
     public static void processAddVehicleRequest() {

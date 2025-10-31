@@ -47,11 +47,11 @@ public class SalesContract extends Contract {
 
     @Override
     public double getTotalPrice() {
-        return super.getTotalPrice();
+        return 0;
     }
 
     @Override
     public double getMonthlyPayment() {
-        return super.getMonthlyPayment();
+        return 0;
     }
 }

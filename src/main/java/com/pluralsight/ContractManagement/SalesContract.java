@@ -1,20 +1,25 @@
 package com.pluralsight.ContractManagement;
 
+import com.pluralsight.DealershipManagement.Vehicle;
+
+import java.awt.*;
+
 public class SalesContract extends Contract {
+    Vehicle vehicle;
     private int recordingFee, processingFee;
     private double salesTax;
-    private boolean finance;
+    private boolean financed;
 
-    public SalesContract(String contractDate, String customerName, String customerEmail, String vehicleSold, double totalPrice, double monthlyPayment, int recordingFee, int processingFee, double salesTax, boolean finance) {
+    public SalesContract(String contractDate, String customerName, String customerEmail, String vehicleSold, double totalPrice, double monthlyPayment, int recordingFee, int processingFee, double salesTax, boolean financed) {
         super(contractDate, customerName, customerEmail, vehicleSold, totalPrice, monthlyPayment);
         this.recordingFee = recordingFee;
         this.processingFee = processingFee;
         this.salesTax = salesTax;
-        this.finance = finance;
+        this.financed = financed;
     }
 
     public int getRecordingFee() {
-        return recordingFee;
+        return 100;
     }
 
     public void setRecordingFee(int recordingFee) {
@@ -22,6 +27,12 @@ public class SalesContract extends Contract {
     }
 
     public int getProcessingFee() {
+        if (vehicle.getPrice() > 10000) {
+            processingFee = 495;
+        }
+        else {
+            processingFee = 295;
+        }
         return processingFee;
     }
 
@@ -30,6 +41,12 @@ public class SalesContract extends Contract {
     }
 
     public double getSalesTax() {
+        if (vehicle.getPrice() > 10000) {
+            salesTax = 0.0425;
+        }
+        else {
+            salesTax = 0.0525;
+        }
         return salesTax;
     }
 
@@ -37,12 +54,12 @@ public class SalesContract extends Contract {
         this.salesTax = salesTax;
     }
 
-    public boolean isFinance() {
-        return finance;
+    public boolean isFinanced() {
+        return financed;
     }
 
-    public void setFinance(boolean finance) {
-        this.finance = finance;
+    public void setFinanced(boolean financed) {
+        this.financed = financed;
     }
 
     @Override
@@ -52,6 +69,23 @@ public class SalesContract extends Contract {
 
     @Override
     public double getMonthlyPayment() {
-        return 0;
+        salesTax = getSalesTax();
+        financed = isFinanced();
+
+        System.out.println("Add statement that asks user if they want to finance and take in that value.");
+        if (financed) {
+            if (vehicle.getPrice() > 10000) {
+                salesTax = getSalesTax();
+                return (salesTax * vehicle.getPrice() * 48);
+            }
+            else {
+                salesTax = getSalesTax();
+                return (salesTax * vehicle.getPrice() * 0.05 * 24);
+            }
+        }
+        else {
+
+            return salesTax + recordingFee + processingFee;
+        }
     }
 }
